@@ -1,10 +1,364 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASOF BM - Passo Fundo e Região</title>
+    <!-- ADICIONE ESTA LINHA ABAIXO -->
+    <link rel="icon" type="image/png" href="Imagens/logo fundo transparente.png">
+    <meta name="description" content="Associação dos Oficiais da Brigada Militar - Passo Fundo e Região. Defesa, união e benefícios exclusivos.">
 
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Configuração do Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        asof: {
+                            green: '#004d00',
+                            red: '#cc0000',
+                            gold: '#bf9b30',
+                            dark: '#1a1a1a',
+                            light: '#f8f9fa'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        header: ['Bebas Neue', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .font-bebas {
+            font-family: 'Bebas Neue', sans-serif;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(0, 20, 0, 0.9), rgba(0, 20, 0, 0.7)), url('https://images.unsplash.com/photo-1595843460867-270d744b2046?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        /* Estilo para a lista de convênios */
+        .partner-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 0.5rem;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+            .partner-item:hover {
+                border-color: #bf9b30;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            }
+
+        .partner-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #f3f4f6;
+            color: #004d00;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body class="bg-asof-light text-gray-800 font-sans antialiased">
+
+    <!-- BARRA DE TOPO -->
+    <div class="bg-asof-red text-white text-xs py-1 px-4 text-center md:text-right font-semibold tracking-wider">
+        BEM-VINDO Á ASSOCIAÇÃO DOS OFICIAIS DA BRIGADA MILITAR E SÓCIOS ESPECIAIS.
+    </div>
+
+    <!-- HEADER -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 h-24 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-4 group">
+                <!-- LOGO da ASOF -->
+                <img src="Imagens/logo fundo transparente.png" alt="Logo ASOF BM PF" class="h-20 w-auto drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
+                <div class="hidden md:block leading-tight">
+                    <h1 class="text-asof-green font-bebas text-3xl tracking-wide">Associação de Oficiais da Brigada Militar</h1>
+                    <span class="text-xs font-bold text-gray-500 tracking-widest block -mt-1">PASSO FUNDO & REGIÃO</span>
+                </div>
+            </a>
+
+            <!-- NAVEGAÇÃO ATUALIZADA -->
+            <nav class="hidden md:flex items-center gap-8 font-montserrat font-semibold text-sm text-asof-green">
+                <a href="#sobre" class="hover:text-asof-gold transition-colors uppercase">A Instituição</a>
+                <a href="#diretoria" class="hover:text-asof-gold transition-colors uppercase">Diretoria</a>
+                <a href="#convenios" class="hover:text-asof-gold transition-colors uppercase">Convênios</a>
+                <a href="#contato" class="hover:text-asof-gold transition-colors uppercase">Contato</a>
+                <a href="https://wa.me/5554991678057?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Associa%C3%A7%C3%A3o%20e%20quero%20ser%20s%C3%B3cio%2C%20consigo%20um%20convite%20especial%3F" target="_blank" class="px-6 py-2 bg-asof-green text-white rounded-full hover:bg-asof-gold hover:text-asof-green transition-all shadow-lg transform hover:-translate-y-0.5">
+                    SEJA SÓCIO
+                </a>
+            </nav>
+
+            <button class="md:hidden text-asof-green text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-bg h-[85vh] flex items-center justify-center text-white px-6 relative overflow-hidden">
+        <div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-asof-green via-asof-red to-yellow-400"></div>
+
+        <div class="text-center max-w-5xl relative z-10">
+            <span class="inline-block py-1 px-3 border border-asof-gold text-asof-gold rounded-full text-xs font-bold tracking-[0.2em] mb-4 uppercase bg-black/30 backdrop-blur-sm">
+                Desde 1979 • Passo Fundo/RS
+            </span>
+            <h2 class="font-bebas text-5xl md:text-7xl lg:text-8xl leading-none mb-6 drop-shadow-xl">
+                Tradição, Força e<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-asof-gold">Integração.</span>
+            </h2>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
+                A casa dos Oficiais da Brigada Militar, Bombeiros, Praças e <strong>Sócios Especiais</strong>. Uma família unida pela história e pelo compromisso com a sociedade.
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="https://wa.me/5554991678057?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Associa%C3%A7%C3%A3o%20e%20quero%20ser%20s%C3%B3cio%2C%20consigo%20um%20convite%20especial%3F" target="_blank" class="px-8 py-4 bg-asof-red hover:bg-red-700 text-white font-bold rounded shadow-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+                    <i class="fas fa-file-signature"></i> QUERO ME ASSOCIAR
+                </a>
+                <a href="#convenios" class="px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-asof-green font-bold rounded transition-all flex items-center justify-center gap-2">
+                    VER PARCEIROS
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NÓS -->
+    <section id="sobre" class="py-20 bg-white">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="relative">
+                <div class="absolute -top-4 -left-4 w-24 h-24 bg-asof-gold/20 rounded-full z-0"></div>
+                <!--<img src="https://images.unsplash.com/photo-1572953109213-3be62398eb95?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sede Social ASOF" class="relative z-10 rounded-lg shadow-2xl grayscale hover:grayscale-0 transition-all duration-500 w-full object-cover h-[400px]">-->
+                <img src="Imagens/Sede social ASOF.png" alt="Sede Social ASOF" class="relative z-10 rounded-lg shadow-2xl grayscale hover:grayscale-0 transition-all duration-500 w-full object-cover h-[400px]">
+            </div>
+            <div>
+                <h3 class="text-asof-red font-bold text-sm tracking-widest uppercase mb-2">Nossa História</h3>
+                <h2 class="text-4xl font-bebas text-asof-dark mb-6">Mais que uma Associação,<br>Uma Família.</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    Fundada em <strong>12 de outubro de 1979</strong>, a ASOF BM PF nasceu para unir oficiais da reserva e da ativa. Reconhecida como Entidade de Utilidade Pública desde 1991, hoje somos um elo vital entre a corporação e a sociedade.
+                </p>
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                    Nossa estrutura conta com a <strong>Sede Social</strong> no Parque da Roselândia, palco dos nossos tradicionais almoços de integração, e uma <strong>Sede Campestre</strong> separada com mais de <strong>9 hectares</strong>, projetada para o lazer e contato com a natureza.
+                </p>
+                <ul class="space-y-3 font-semibold text-asof-green">
+                    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-asof-gold"></i> Integração com a Comunidade (Sócios Especiais)</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-asof-gold"></i> Sede Social na Roselândia</li>
+                    <li class="flex items-center gap-3"><i class="fas fa-check-circle text-asof-gold"></i> Ampla Sede Campestre separada</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFÍCIOS GERAIS -->
+    <section id="beneficios" class="py-20 bg-gray-50 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl font-bebas text-asof-dark mb-4">Vantagens Exclusivas</h2>
+                <div class="w-24 h-1 bg-asof-red mx-auto mb-6"></div>
+                <p class="text-gray-600">
+                    Seja você um Oficial, Praça ou um Amigo Civil convidado, fazer parte da ASOF é ter acesso a uma rede de benefícios.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="benefit-card bg-white p-8 rounded-xl shadow-lg border-b-4 border-asof-green group cursor-default">
+                    <div class="w-16 h-16 bg-asof-green/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-asof-green transition-colors">
+                        <i class="fas fa-glass-cheers text-3xl text-asof-green group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-asof-dark mb-3 font-montserrat">Lazer e Gastronomia</h3>
+                    <p class="text-sm text-gray-500 mb-4">
+                        Acesso à <strong>Sede Social na Roselândia</strong> para os tradicionais almoços de confraternização.
+                    </p>
+                </div>
+
+                <div class="benefit-card bg-white p-8 rounded-xl shadow-lg border-b-4 border-asof-gold group cursor-default">
+                    <div class="w-16 h-16 bg-asof-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-asof-gold transition-colors">
+                        <i class="fas fa-handshake text-3xl text-asof-gold group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-asof-dark mb-3 font-montserrat">Convênios</h3>
+                    <p class="text-sm text-gray-500 mb-4">
+                        Descontos reais em parceiros em diversas áreas como saúde, automotivo e educação.
+                    </p>
+                </div>
+
+                <div class="benefit-card bg-white p-8 rounded-xl shadow-lg border-b-4 border-asof-red group cursor-default">
+                    <div class="w-16 h-16 bg-asof-red/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-asof-red transition-colors">
+                        <i class="fas fa-scale-balanced text-3xl text-asof-red group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-asof-dark mb-3 font-montserrat">Proteção Jurídica</h3>
+                    <p class="text-sm text-gray-500 mb-4">
+                        Para os sócios militares, oferecemos suporte jurídico especializado.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DIRETORIA (READICIONADA) -->
+    <section id="diretoria" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bebas text-asof-dark mb-10 text-center">Gestão Passo Fundo</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                <!-- Card de Presidente -->
+                <div class="p-6 border border-gray-100 rounded-lg hover:shadow-md transition-shadow">
+                    <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 overflow-hidden">
+                        <img src="https://ui-avatars.com/api/?name=Presidente+ASOF&background=004d00&color=fff" alt="Presidente">
+                    </div>
+                    <h4 class="font-bold text-asof-dark">Nome do Presidente</h4>
+                    <p class="text-xs text-asof-green uppercase tracking-wider font-bold">Presidente Regional</p>
+                </div>
+
+                <!-- Card de Vice -->
+                <div class="p-6 border border-gray-100 rounded-lg hover:shadow-md transition-shadow">
+                    <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 overflow-hidden">
+                        <img src="https://ui-avatars.com/api/?name=Vice+Presidente&background=bf9b30&color=fff" alt="Vice">
+                    </div>
+                    <h4 class="font-bold text-asof-dark">Nome do Vice</h4>
+                    <p class="text-xs text-asof-green uppercase tracking-wider font-bold">Vice-Presidente</p>
+                </div>
+
+                <!-- Adicione mais conforme necessário -->
+            </div>
+        </div>
+    </section>
+
+    <!-- LISTA DE PARCEIROS (CONVÊNIOS) -->
+    <section id="convenios" class="py-20 bg-asof-light border-t border-gray-200">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bebas text-asof-dark mb-10 text-center">Nossa Rede de Parceiros</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Destaque: JC Soluções -->
+                <div class="lg:col-span-4 bg-white p-6 rounded-lg border border-asof-green/20 mb-6 flex flex-col md:flex-row items-center justify-between gap-6 hover:shadow-lg transition-shadow">
+                    <div class="flex items-center gap-4">
+                        <img src="Imagens/Logo JC Soluções em Tecnologia.png" alt="JC Soluções" class="h-24 w-24 object-contain rounded bg-white shadow-sm p-2">
+                        <div>
+                            <h3 class="text-xl font-bold text-asof-green">JC Soluções em Tecnologia</h3>
+                            <p class="text-sm text-gray-600">Soluções completas em TI e Desenvolvimento.</p>
+                            <span class="inline-block mt-2 px-3 py-1 bg-asof-gold text-white text-xs font-bold rounded-full">SÓCIO PARCEIRO</span>
+                        </div>
+                    </div>
+                    <!-- Link WhatsApp com Mensagem Personalizada para JC Soluções -->
+                    <a href="https://wa.me/5554991678057?text=Ol%C3%A1%2C%20vi%20seu%20trabalho%20no%20site%20da%20ASOF%20e%20quero%20solicitar%20um%20or%C3%A7amento%21" target="_blank" class="px-6 py-2 bg-asof-green text-white rounded font-bold hover:bg-asof-dark transition-colors text-sm">
+                        Solicitar Orçamento
+                    </a>
+                </div>
+
+                <!-- Categoria: Saúde e Bem-estar -->
+                <div class="lg:col-span-4 mb-2"><h3 class="text-lg font-bold text-asof-green border-b pb-2">Saúde e Bem-Estar</h3></div>
+
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-x-ray"></i></div><span class="font-semibold">Clínica Kosma</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-microscope"></i></div><span class="font-semibold">Widal Pacheco Análises</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-tooth"></i></div><span class="font-semibold">Oral Unic Implantes</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-spa"></i></div><span class="font-semibold">Virtuosa Estética</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-user-md"></i></div><span class="font-semibold">Mestre da Coluna</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-tooth"></i></div><span class="font-semibold">Dr. Fabio Aneris</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-stethoscope"></i></div><span class="font-semibold">Clínica AMME</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-weight"></i></div><span class="font-semibold">Emagrecentro</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-dumbbell"></i></div><span class="font-semibold">Academia Training</span></div>
+
+                <!-- Categoria: Automotivo -->
+                <div class="lg:col-span-4 mt-6 mb-2"><h3 class="text-lg font-bold text-asof-green border-b pb-2">Automotivo</h3></div>
+
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-gas-pump"></i></div><span class="font-semibold">Postos Sander Group</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-gas-pump"></i></div><span class="font-semibold">Postos Tradição</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-wrench"></i></div><span class="font-semibold">Auto Mecânica Braga</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-car"></i></div><span class="font-semibold">Catto Pneus</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-shower"></i></div><span class="font-semibold">Bascar Lavagem</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-id-card"></i></div><span class="font-semibold">CFC Autotec</span></div>
+
+                <!-- Categoria: Educação e Serviços -->
+                <div class="lg:col-span-4 mt-6 mb-2"><h3 class="text-lg font-bold text-asof-green border-b pb-2">Educação e Serviços</h3></div>
+
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-graduation-cap"></i></div><span class="font-semibold">Instituto Educacional (IE)</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-book-reader"></i></div><span class="font-semibold">Instituto Mix</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-language"></i></div><span class="font-semibold">Upon Escola de Idiomas</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-futbol"></i></div><span class="font-semibold">Maraca Clube de Futebol</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-microphone"></i></div><span class="font-semibold">Parlare Oratória</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-hotel"></i></div><span class="font-semibold">Dallonder Hotéis</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-prescription-bottle-alt"></i></div><span class="font-semibold">Farmácias São João</span></div>
+                <div class="partner-item"><div class="partner-icon"><i class="fas fa-drafting-compass"></i></div><span class="font-semibold">Arq. Mariana Zanotelli</span></div>
+            </div>
+
+            <div class="mt-12 text-center text-sm text-gray-500">
+                <p>* Os descontos variam conforme o estabelecimento. Apresente sua carteirinha de sócio.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contato" class="bg-black text-white py-16 text-center font-sans">
+        <div class="container mx-auto px-6">
+            <h3 class="text-3xl md:text-4xl font-bebas tracking-wider mb-8 uppercase text-white">
+                Entre em Contato
+            </h3>
+
+            <div class="flex justify-center gap-8 mb-10">
+                <a href="https://wa.me/5554991678057" target="_blank" rel="noopener noreferrer"
+                   class="w-14 h-14 flex items-center justify-center border border-gray-700 rounded-full text-2xl text-gray-400 hover:text-green-500 hover:border-green-500 hover:bg-green-500/10 transition-all duration-300 transform hover:scale-110">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="mailto:contato@asofpassofundo.com.br" target="_blank" rel="noopener noreferrer"
+                   class="w-14 h-14 flex items-center justify-center border border-gray-700 rounded-full text-2xl text-gray-400 hover:text-blue-500 hover:border-blue-500 hover:bg-blue-500/10 transition-all duration-300 transform hover:scale-110">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer"
+                   class="w-14 h-14 flex items-center justify-center border border-gray-700 rounded-full text-2xl text-gray-400 hover:text-pink-600 hover:border-pink-600 hover:bg-pink-600/10 transition-all duration-300 transform hover:scale-110">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 mt-8 max-w-2xl mx-auto">
+                <p class="text-gray-500 text-sm mb-2">
+                    &copy; 2026 ASOF BM PF - Associação dos Oficiais da Brigada Militar de Passo Fundo.
+                </p>
+                <p class="text-gray-600 text-xs font-light">
+                    Desenvolvido por <span class="text-gray-400 font-normal">J. Caetano</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        console.log("ASOF Passo Fundo - Sistema Carregado");
+    </script>
 </body>
 </html>
