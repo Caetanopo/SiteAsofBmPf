@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASOF BM - Passo Fundo e Região</title>
-    <!-- ADICIONE ESTA LINHA ABAIXO -->
+    <!-- ADICIONE ESTA LINHA ABAIXO (No seu VS Code mantenha o caminho da sua pasta) -->
     <link rel="icon" type="image/png" href="Imagens/logo fundo transparente.png">
     <meta name="description" content="Associação dos Oficiais da Brigada Militar - Passo Fundo e Região. Defesa, união e benefícios exclusivos.">
 
@@ -67,33 +67,91 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
-        /* Estilo para a lista de convênios */
-        .partner-item {
+        /* Estilo Premium para Cards de Parceiros com Logos e Interação */
+        .partner-card {
             display: flex;
-            align-items: center;
-            gap: 1rem;
+            flex-direction: column; /* Alterado para permitir expansão */
+            align-items: flex-start;
             padding: 1rem;
             background-color: white;
             border-radius: 0.5rem;
-            border: 1px solid #e5e7eb;
-            transition: all 0.3s ease;
+            border-left: 4px solid #bf9b30;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            height: auto; /* Altura automática para o conteúdo */
+            min-height: 80px;
+            cursor: pointer; /* Indica que é clicável */
+            position: relative;
         }
 
-            .partner-item:hover {
-                border-color: #bf9b30;
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            }
+        .partner-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+        }
 
-        .partner-icon {
-            width: 40px;
-            height: 40px;
+        .partner-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-left-color: #004d00;
+        }
+
+        /* Indicador de expansão (+) */
+        .partner-card::after {
+            content: '+';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #bf9b30;
+            transition: transform 0.3s ease;
+        }
+
+        .partner-card.active::after {
+            content: '-';
+            color: #004d00;
+        }
+
+        /* Ajuste para quando o card expande, o indicador vai para o topo */
+        .partner-card.active::after {
+            top: 30px;
+        }
+
+        .partner-logo-container {
+            min-width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            background-color: #f3f4f6;
-            color: #004d00;
-            font-size: 1.2rem;
+            padding: 5px;
+            border-radius: 8px;
+            background-color: #fff;
+            border: 1px solid #f0f0f0;
+        }
+
+            .partner-logo-container img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+
+        /* Área de Descrição Oculta */
+        .partner-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, opacity 0.4s ease, padding 0.3s;
+            opacity: 0;
+            width: 100%;
+        }
+
+        .partner-card.active .partner-details {
+            max-height: 200px; /* Altura máxima suficiente para o texto */
+            opacity: 1;
+            padding-top: 1rem;
+            margin-top: 0.5rem;
+            border-top: 1px solid #f0f0f0;
         }
     </style>
 </head>
@@ -101,7 +159,7 @@
 
     <!-- BARRA DE TOPO -->
     <div class="bg-asof-red text-white text-xs py-1 px-4 text-center md:text-right font-semibold tracking-wider">
-        BEM-VINDO Á ASSOCIAÇÃO DOS OFICIAIS DA BRIGADA MILITAR E SÓCIOS ESPECIAIS.
+        BEM-VINDO À ASSOCIAÇÃO DOS OFICIAIS DA BRIGADA MILITAR E SÓCIOS ESPECIAIS.
     </div>
 
     <!-- HEADER -->
@@ -116,12 +174,13 @@
                 </div>
             </a>
 
-            <!-- NAVEGAÇÃO ATUALIZADA -->
+            <!-- NAVEGAÇÃO -->
             <nav class="hidden md:flex items-center gap-8 font-montserrat font-semibold text-sm text-asof-green">
                 <a href="#sobre" class="hover:text-asof-gold transition-colors uppercase">A Instituição</a>
                 <a href="#diretoria" class="hover:text-asof-gold transition-colors uppercase">Diretoria</a>
                 <a href="#convenios" class="hover:text-asof-gold transition-colors uppercase">Convênios</a>
                 <a href="#contato" class="hover:text-asof-gold transition-colors uppercase">Contato</a>
+                <!-- Link WhatsApp com Mensagem Personalizada -->
                 <a href="https://wa.me/5554991678057?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Associa%C3%A7%C3%A3o%20e%20quero%20ser%20s%C3%B3cio%2C%20consigo%20um%20convite%20especial%3F" target="_blank" class="px-6 py-2 bg-asof-green text-white rounded-full hover:bg-asof-gold hover:text-asof-green transition-all shadow-lg transform hover:-translate-y-0.5">
                     SEJA SÓCIO
                 </a>
@@ -150,6 +209,7 @@
             </p>
 
             <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <!-- Link WhatsApp com Mensagem Personalizada -->
                 <a href="https://wa.me/5554991678057?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Associa%C3%A7%C3%A3o%20e%20quero%20ser%20s%C3%B3cio%2C%20consigo%20um%20convite%20especial%3F" target="_blank" class="px-8 py-4 bg-asof-red hover:bg-red-700 text-white font-bold rounded shadow-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2">
                     <i class="fas fa-file-signature"></i> QUERO ME ASSOCIAR
                 </a>
@@ -165,7 +225,6 @@
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div class="relative">
                 <div class="absolute -top-4 -left-4 w-24 h-24 bg-asof-gold/20 rounded-full z-0"></div>
-                <!--<img src="https://images.unsplash.com/photo-1572953109213-3be62398eb95?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sede Social ASOF" class="relative z-10 rounded-lg shadow-2xl grayscale hover:grayscale-0 transition-all duration-500 w-full object-cover h-[400px]">-->
                 <img src="Imagens/Sede social ASOF.png" alt="Sede Social ASOF" class="relative z-10 rounded-lg shadow-2xl grayscale hover:grayscale-0 transition-all duration-500 w-full object-cover h-[400px]">
             </div>
             <div>
@@ -231,7 +290,7 @@
         </div>
     </section>
 
-    <!-- SEÇÃO DIRETORIA (READICIONADA) -->
+    <!-- SEÇÃO DIRETORIA -->
     <section id="diretoria" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bebas text-asof-dark mb-10 text-center">Gestão Passo Fundo</h2>
@@ -259,67 +318,339 @@
         </div>
     </section>
 
-    <!-- LISTA DE PARCEIROS (CONVÊNIOS) -->
+    <!-- LISTA DE PARCEIROS (CONVÊNIOS) - COM LOGOS E INTERAÇÃO -->
     <section id="convenios" class="py-20 bg-asof-light border-t border-gray-200">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bebas text-asof-dark mb-10 text-center">Nossa Rede de Parceiros</h2>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- AVISO VISUAL EM VERMELHO -->
+            <div class="text-center mb-10">
+                <p class="inline-block bg-asof-red text-white py-3 px-8 rounded-full shadow-lg font-bold uppercase tracking-wide cursor-default hover:bg-red-700 transition-colors">
+                    <i class="fas fa-hand-point-down mr-2 animate-bounce"></i> Clique nos cartões abaixo para ver detalhes dos benefícios
+                </p>
+            </div>
+
+
+            <!-- Adicionado items-start para evitar que cards vizinhos estiquem -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
 
                 <!-- Destaque: JC Soluções -->
-                <div class="lg:col-span-4 bg-white p-6 rounded-lg border border-asof-green/20 mb-6 flex flex-col md:flex-row items-center justify-between gap-6 hover:shadow-lg transition-shadow">
+                <div class="lg:col-span-4 bg-white p-6 rounded-lg border-l-4 border-asof-gold shadow-md mb-6 flex flex-col md:flex-row items-center justify-between gap-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                     <div class="flex items-center gap-4">
-                        <img src="Imagens/Logo JC Soluções em Tecnologia.png" alt="JC Soluções" class="h-24 w-24 object-contain rounded bg-white shadow-sm p-2">
+                        <div class="w-24 h-24 bg-white rounded border border-gray-100 p-2 flex items-center justify-center">
+                            <img src="Imagens/Logo JC Soluções em Tecnologia.png" alt="JC Soluções" class="h-24 w-24 object-contain rounded bg-white shadow-sm p-2">
+                        </div>
                         <div>
-                            <h3 class="text-xl font-bold text-asof-green">JC Soluções em Tecnologia</h3>
+                            <h3 class="text-xl font-bold text-asof-green"><i class="fas fa-laptop-code mr-2"></i>JC Soluções em Tecnologia</h3>
                             <p class="text-sm text-gray-600">Soluções completas em TI e Desenvolvimento.</p>
+                            <!-- Descrição do desconto adicionada -->
+                            <p class="text-sm text-gray-500 mt-2 italic">Condições comerciais exclusivas para associados em projetos de software e consultoria.</p>
                             <span class="inline-block mt-2 px-3 py-1 bg-asof-gold text-white text-xs font-bold rounded-full">SÓCIO PARCEIRO</span>
                         </div>
                     </div>
-                    <!-- Link WhatsApp com Mensagem Personalizada para JC Soluções -->
                     <a href="https://wa.me/5554991678057?text=Ol%C3%A1%2C%20vi%20seu%20trabalho%20no%20site%20da%20ASOF%20e%20quero%20solicitar%20um%20or%C3%A7amento%21" target="_blank" class="px-6 py-2 bg-asof-green text-white rounded font-bold hover:bg-asof-dark transition-colors text-sm">
                         Solicitar Orçamento
                     </a>
                 </div>
 
                 <!-- Categoria: Saúde e Bem-estar -->
-                <div class="lg:col-span-4 mb-2"><h3 class="text-lg font-bold text-asof-green border-b pb-2">Saúde e Bem-Estar</h3></div>
+                <div class="lg:col-span-4 mb-2"><h3 class="text-lg font-bold text-asof-green border-b pb-2 mt-8"><i class="fas fa-heartbeat mr-2"></i>Saúde e Bem-Estar</h3></div>
 
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-x-ray"></i></div><span class="font-semibold">Clínica Kosma</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-microscope"></i></div><span class="font-semibold">Widal Pacheco Análises</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-tooth"></i></div><span class="font-semibold">Oral Unic Implantes</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-spa"></i></div><span class="font-semibold">Virtuosa Estética</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-user-md"></i></div><span class="font-semibold">Mestre da Coluna</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-tooth"></i></div><span class="font-semibold">Dr. Fabio Aneris</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-stethoscope"></i></div><span class="font-semibold">Clínica AMME</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-weight"></i></div><span class="font-semibold">Emagrecentro</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-dumbbell"></i></div><span class="font-semibold">Academia Training</span></div>
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Kosma" onerror="this.src='https://placehold.co/100x60?text=Kosma'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Clínica Kosma</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Descontos especiais em exames de imagem e diagnósticos para associados e dependentes.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Widal Pacheco" onerror="this.src='https://placehold.co/100x60?text=Widal'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Widal Pacheco Análises</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Tabela diferenciada para exames laboratoriais completos.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Oral Unic" onerror="this.src='https://placehold.co/100x60?text=OralUnic'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Oral Unic Implantes</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Avaliação gratuita e condições especiais em tratamentos odontológicos e implantes.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Virtuosa" onerror="this.src='https://placehold.co/100x60?text=Virtuosa'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Virtuosa Estética</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Descontos em pacotes de estética facial e corporal.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Mestre da Coluna" onerror="this.src='https://placehold.co/100x60?text=Mestre+Coluna'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Mestre da Coluna</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Tratamentos fisioterapêuticos e quiropraxia com valor exclusivo.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Dr Fabio Aneris" onerror="this.src='https://placehold.co/100x60?text=Dr+Aneris'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Dr. Fabio Aneris</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Atendimento odontológico clínico com descontos na tabela particular.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="AMME" onerror="this.src='https://placehold.co/100x60?text=AMME'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Clínica AMME</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Consultas médicas especializadas com valores acessíveis.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Emagrecentro" onerror="this.src='https://placehold.co/100x60?text=Emagrecentro'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Emagrecentro</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Programas de emagrecimento e saúde com condições facilitadas.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Training" onerror="this.src='https://placehold.co/100x60?text=Training'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Academia Training</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Isenção de matrícula e desconto na mensalidade para sócios.</p>
+                    </div>
+                </div>
 
                 <!-- Categoria: Automotivo -->
-                <div class="lg:col-span-4 mt-6 mb-2"><h3 class="text-lg font-bold text-asof-green border-b pb-2">Automotivo</h3></div>
+                <div class="lg:col-span-4 mt-6 mb-2"><h3 class="text-lg font-bold text-asof-green border-b pb-2 mt-8"><i class="fas fa-car mr-2"></i>Automotivo</h3></div>
 
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-gas-pump"></i></div><span class="font-semibold">Postos Sander Group</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-gas-pump"></i></div><span class="font-semibold">Postos Tradição</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-wrench"></i></div><span class="font-semibold">Auto Mecânica Braga</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-car"></i></div><span class="font-semibold">Catto Pneus</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-shower"></i></div><span class="font-semibold">Bascar Lavagem</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-id-card"></i></div><span class="font-semibold">CFC Autotec</span></div>
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Sander Group" onerror="this.src='https://placehold.co/100x60?text=Sander'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Postos Sander Group</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Desconto por litro no abastecimento com identificação.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Postos Tradição" onerror="this.src='https://placehold.co/100x60?text=Tradicao'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Postos Tradição</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Vantagens exclusivas em combustíveis e serviços.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Mecânica Braga" onerror="this.src='https://placehold.co/100x60?text=Braga'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Auto Mecânica Braga</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Desconto em mão de obra e peças selecionadas.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Catto Pneus" onerror="this.src='https://placehold.co/100x60?text=Catto'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Catto Pneus</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Condições especiais na compra de pneus e serviços de geometria.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Bascar" onerror="this.src='https://placehold.co/100x60?text=Bascar'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Bascar Lavagem</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Preço reduzido na lavagem completa e higienização.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="CFC Autotec" onerror="this.src='https://placehold.co/100x60?text=Autotec'">
+                        </div>
+                        <span class="font-semibold text-gray-700">CFC Autotec</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Descontos na primeira habilitação e renovação de CNH.</p>
+                    </div>
+                </div>
 
                 <!-- Categoria: Educação e Serviços -->
-                <div class="lg:col-span-4 mt-6 mb-2"><h3 class="text-lg font-bold text-asof-green border-b pb-2">Educação e Serviços</h3></div>
+                <div class="lg:col-span-4 mt-6 mb-2"><h3 class="text-lg font-bold text-asof-green border-b pb-2 mt-8"><i class="fas fa-graduation-cap mr-2"></i>Educação e Serviços</h3></div>
 
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-graduation-cap"></i></div><span class="font-semibold">Instituto Educacional (IE)</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-book-reader"></i></div><span class="font-semibold">Instituto Mix</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-language"></i></div><span class="font-semibold">Upon Escola de Idiomas</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-futbol"></i></div><span class="font-semibold">Maraca Clube de Futebol</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-microphone"></i></div><span class="font-semibold">Parlare Oratória</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-hotel"></i></div><span class="font-semibold">Dallonder Hotéis</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-prescription-bottle-alt"></i></div><span class="font-semibold">Farmácias São João</span></div>
-                <div class="partner-item"><div class="partner-icon"><i class="fas fa-drafting-compass"></i></div><span class="font-semibold">Arq. Mariana Zanotelli</span></div>
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="IE" onerror="this.src='https://placehold.co/100x60?text=IE'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Instituto Educacional (IE)</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Desconto nas mensalidades para dependentes de associados.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Instituto Mix" onerror="this.src='https://placehold.co/100x60?text=Mix'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Instituto Mix</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Bolsas parciais em cursos profissionalizantes.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Upon" onerror="this.src='https://placehold.co/100x60?text=Upon'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Upon Escola de Idiomas</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Matrícula grátis e desconto nas mensalidades dos cursos de idiomas.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Maraca" onerror="this.src='https://placehold.co/100x60?text=Maraca'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Maraca Clube de Futebol</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Desconto na locação de quadras e escolinha de futebol.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Parlare" onerror="this.src='https://placehold.co/100x60?text=Parlare'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Parlare Oratória</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Condições especiais para turmas de oratória e comunicação.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Dallonder" onerror="this.src='https://placehold.co/100x60?text=Dallonder'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Dallonder Hotéis</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Tarifa corporativa especial para hospedagem.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Sao Joao" onerror="this.src='https://placehold.co/100x60?text=Sao+Joao'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Farmácias São João</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Descontos em medicamentos de referência e genéricos com o CPF cadastrado.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="" alt="Arq Mariana" onerror="this.src='https://placehold.co/100x60?text=Arq+Mariana'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Arq. Mariana Zanotelli</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Consultoria e projetos arquitetônicos com valores exclusivos para sócios.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="mt-12 text-center text-sm text-gray-500">
-                <p>* Os descontos variam conforme o estabelecimento. Apresente sua carteirinha de sócio.</p>
+            <!-- CTA DE DESCONTOS -->
+            <div class="mt-16 text-center">
+                <div class="inline-block bg-white p-6 rounded-xl shadow-lg border-2 border-asof-green/10 max-w-2xl mx-auto">
+                    <p class="text-lg text-asof-dark font-medium mb-4">
+                        Para saber mais sobre os descontos e vantagens dos nossos parceiros e conveniados, entre em contato!
+                    </p>
+                    <p class="text-sm text-gray-500 mb-2 font-bold uppercase tracking-wide">Clique no botão do whatsapp abaixo</p>
+                    <!-- Link atualizado para apontar diretamente para os botões -->
+                    <a href="#canais-contato" class="inline-flex items-center justify-center w-12 h-12 bg-asof-gold hover:bg-yellow-600 text-white rounded-full transition-all shadow-md transform hover:scale-110 hover:shadow-lg animate-bounce">
+                        <i class="fas fa-arrow-down text-xl"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -331,7 +662,8 @@
                 Entre em Contato
             </h3>
 
-            <div class="flex justify-center gap-8 mb-10">
+            <!-- ID adicionado e scroll-mt para ajuste de rolagem -->
+            <div id="canais-contato" class="flex justify-center gap-8 mb-10 scroll-mt-40">
                 <a href="https://wa.me/5554991678057" target="_blank" rel="noopener noreferrer"
                    class="w-14 h-14 flex items-center justify-center border border-gray-700 rounded-full text-2xl text-gray-400 hover:text-green-500 hover:border-green-500 hover:bg-green-500/10 transition-all duration-300 transform hover:scale-110">
                     <i class="fab fa-whatsapp"></i>
@@ -359,6 +691,21 @@
 
     <script>
         console.log("ASOF Passo Fundo - Sistema Carregado");
+
+        // Função para expandir/recolher cards de parceiros
+        function togglePartner(card) {
+            // Se clicar no mesmo card aberto, ele fecha.
+            // Se clicar em outro, fecha todos e abre o novo.
+
+            // Opcional: Fechar outros ao abrir um (comente as linhas abaixo se quiser permitir múltiplos abertos)
+            
+            //document.querySelectorAll('.partner-card').forEach(c => {
+            //    if (c !== card) c.classList.remove('active');
+            //});
+            
+
+            card.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
