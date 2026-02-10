@@ -183,7 +183,7 @@
 
     <!-- HEADER -->
     <header class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 h-24 flex justify-between items-center">
+        <div class="container mx-auto px-6 h-24 flex justify-between items-center relative">
             <a href="#" class="flex items-center gap-4 group">
                 <!-- LOGO da ASOF -->
                 <img src="Imagens/logo fundo transparente.png" alt="Logo ASOF BM PF" class="h-20 w-auto drop-shadow-sm group-hover:scale-105 transition-transform duration-300">
@@ -193,7 +193,7 @@
                 </div>
             </a>
 
-            <!-- NAVEGAÇÃO -->
+            <!-- NAVEGAÇÃO DESKTOP -->
             <nav class="hidden md:flex items-center gap-8 font-montserrat font-semibold text-sm text-asof-green">
                 <a href="#sobre" class="hover:text-asof-gold transition-colors uppercase">A Instituição</a>
                 <a href="#diretoria" class="hover:text-asof-gold transition-colors uppercase">Diretoria</a>
@@ -208,9 +208,24 @@
                 </a>
             </nav>
 
-            <button class="md:hidden text-asof-green text-2xl focus:outline-none">
+            <!-- BOTÃO MOBILE (Hambúrguer) -->
+            <button id="mobile-menu-btn" class="md:hidden text-asof-green text-2xl focus:outline-none">
                 <i class="fas fa-bars"></i>
             </button>
+        </div>
+
+        <!-- MENU MOBILE (Oculto por padrão) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full left-0 top-24 z-40">
+            <nav class="flex flex-col p-6 gap-4 font-montserrat font-semibold text-sm text-asof-green text-center">
+                <a href="#sobre" class="hover:text-asof-gold uppercase py-2 border-b border-gray-50">A Instituição</a>
+                <a href="#diretoria" class="hover:text-asof-gold uppercase py-2 border-b border-gray-50">Diretoria</a>
+                <a href="#beneficios" class="hover:text-asof-gold uppercase py-2 border-b border-gray-50">Vantagens</a>
+                <a href="#convenios" class="hover:text-asof-gold uppercase py-2 border-b border-gray-50">Convênios</a>
+                <a href="#contato" class="hover:text-asof-gold uppercase py-2 border-b border-gray-50">Contato</a>
+                <a href="https://wa.me/5554991678057?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Associa%C3%A7%C3%A3o%20e%20quero%20ser%20s%C3%B3cio%2C%20consigo%20um%20convite%20especial%3F" target="_blank" class="px-6 py-3 bg-asof-green text-white rounded-full hover:bg-asof-gold hover:text-asof-green transition-all shadow-md mt-2">
+                    SEJA SÓCIO
+                </a>
+            </nav>
         </div>
     </header>
 
@@ -354,7 +369,7 @@
 
             <!-- AVISO VISUAL EM VERMELHO -->
             <div class="text-center mb-10">
-                <p class="inline-block bg-asof-red text-white py-3 px-8 rounded-full shadow-lg font-bold uppercase tracking-wide cursor-default hover:bg-red-700 transition-colors">
+                <p class="inline-block bg-asof-red text-white py-2 px-4 md:py-3 md:px-8 rounded-full shadow-lg font-bold uppercase tracking-wide cursor-default hover:bg-red-700 transition-colors text-xs md:text-base">
                     <i class="fas fa-hand-point-down mr-2 animate-bounce"></i> Clique nos cartões abaixo para ver detalhes dos benefícios
                 </p>
             </div>
@@ -363,15 +378,15 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
 
                 <!-- Destaque: JC Soluções -->
-                <div class="lg:col-span-4 bg-white p-6 rounded-lg border-l-4 border-asof-gold shadow-md mb-6 flex flex-col md:flex-row items-center justify-between gap-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="flex items-center gap-4">
-                        <!-- MUDANÇA: Aumentei para w-40 h-40 e flex-shrink-0 para a logo ficar bem grande -->
-                        <div class="w-40 h-40 bg-white rounded border border-gray-100 p-1 flex items-center justify-center shadow-sm flex-shrink-0">
+                <div class="lg:col-span-4 bg-white p-4 md:p-6 rounded-lg border-l-4 border-asof-gold shadow-md mb-6 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
+                        <!-- MUDANÇA: Responsividade para a logo -->
+                        <div class="w-20 h-20 md:w-40 md:h-40 bg-white rounded border border-gray-100 p-1 flex items-center justify-center shadow-sm flex-shrink-0">
                             <!-- CORREÇÃO AQUI: Removidas classes duplicadas da imagem -->
-                            <img src="Imagens/Logo JC Soluções em Tecnologia fundo transparente.png" alt="JC Soluções" class="max-w-full max-h-full object-contain">
+                            <img src="Imagens/Logo JC Soluções em Tecnologia.png" alt="JC Soluções" class="max-w-full max-h-full object-contain">
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-asof-green"><i class="fas fa-laptop-code mr-2"></i>JC Soluções em Tecnologia</h3>
+                            <h3 class="text-lg md:text-xl font-bold text-asof-green"><i class="fas fa-laptop-code mr-2"></i>JC Soluções em Tecnologia</h3>
                             <p class="text-sm text-gray-600">Soluções completas em TI e Desenvolvimento.</p>
                             <!-- Descrição do desconto adicionada -->
                             <p class="text-sm text-gray-500 mt-2 italic">Condições comerciais exclusivas para associados em projetos de software e consultoria.</p>
@@ -379,7 +394,7 @@
                             <span class="inline-block mt-2 px-3 py-1 bg-asof-gold text-white text-xs font-bold rounded-full">SÓCIO CONVENIADO</span>
                         </div>
                     </div>
-                    <a href="https://wa.me/5554991678057?text=Ol%C3%A1%2C%20vi%20seu%20trabalho%20no%20site%20da%20ASOF%20e%20quero%20solicitar%20um%20or%C3%A7amento%21" target="_blank" class="px-6 py-2 bg-asof-green text-white rounded font-bold hover:bg-asof-dark transition-colors text-sm">
+                    <a href="https://wa.me/5554991678057?text=Ol%C3%A1%2C%20vi%20seu%20trabalho%20no%20site%20da%20ASOF%20e%20quero%20solicitar%20um%20or%C3%A7amento%21" target="_blank" class="w-full md:w-auto text-center px-6 py-2 bg-asof-green text-white rounded font-bold hover:bg-asof-dark transition-colors text-sm">
                         Solicitar Orçamento
                     </a>
                 </div>
@@ -737,6 +752,21 @@
 
             card.classList.toggle('active');
         }
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
     </script>
 </body>
 </html>
