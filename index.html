@@ -67,7 +67,7 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
-        /* Estilo Premium para Cards de Parceiros com Logos e Interação */
+        /* Estilo Premium para Cards de Conveniados com Logos e Interação */
         .partner-card {
             display: flex;
             flex-direction: column; /* Alterado para permitir expansão */
@@ -178,6 +178,9 @@
             <nav class="hidden md:flex items-center gap-8 font-montserrat font-semibold text-sm text-asof-green">
                 <a href="#sobre" class="hover:text-asof-gold transition-colors uppercase">A Instituição</a>
                 <a href="#diretoria" class="hover:text-asof-gold transition-colors uppercase">Diretoria</a>
+                <!-- Link "Vantagens" adicionado -->
+                <a href="#beneficios" class="hover:text-asof-gold transition-colors uppercase">Vantagens</a>
+                <!-- Link "Convênios" agora leva para a lista de conveniados -->
                 <a href="#convenios" class="hover:text-asof-gold transition-colors uppercase">Convênios</a>
                 <a href="#contato" class="hover:text-asof-gold transition-colors uppercase">Contato</a>
                 <!-- Link WhatsApp com Mensagem Personalizada -->
@@ -194,7 +197,11 @@
 
     <!-- HERO SECTION -->
     <section class="hero-bg h-[85vh] flex items-center justify-center text-white px-6 relative overflow-hidden">
-        <div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-asof-green via-asof-red to-yellow-400"></div>
+        <!-- MARCA D'ÁGUA NO FUNDO -->
+        <div class="absolute inset-0 flex items-center justify-center z-0 pointer-events-none">
+            <!-- Nota: Substitua o caminho abaixo se necessário para 'Imagens/logo preto e branco fundo transparente.png' no seu PC -->
+            <img src="Imagens/logo preto e branco fundo transparente.png" alt="Marca D'água" class="w-[500px] md:w-[700px] opacity-10 animate-pulse">
+        </div>
 
         <div class="text-center max-w-5xl relative z-10">
             <span class="inline-block py-1 px-3 border border-asof-gold text-asof-gold rounded-full text-xs font-bold tracking-[0.2em] mb-4 uppercase bg-black/30 backdrop-blur-sm">
@@ -213,15 +220,16 @@
                 <a href="https://wa.me/5554991678057?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Associa%C3%A7%C3%A3o%20e%20quero%20ser%20s%C3%B3cio%2C%20consigo%20um%20convite%20especial%3F" target="_blank" class="px-8 py-4 bg-asof-red hover:bg-red-700 text-white font-bold rounded shadow-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2">
                     <i class="fas fa-file-signature"></i> QUERO ME ASSOCIAR
                 </a>
+                <!-- Link ajustado e texto renomeado -->
                 <a href="#convenios" class="px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-asof-green font-bold rounded transition-all flex items-center justify-center gap-2">
-                    VER PARCEIROS
+                    VER CONVENIADOS
                 </a>
             </div>
         </div>
     </section>
 
     <!-- SOBRE NÓS -->
-    <section id="sobre" class="py-20 bg-white">
+    <section id="sobre" class="py-20 bg-white scroll-mt-28">
         <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
             <div class="relative">
                 <div class="absolute -top-4 -left-4 w-24 h-24 bg-asof-gold/20 rounded-full z-0"></div>
@@ -245,8 +253,36 @@
         </div>
     </section>
 
-    <!-- BENEFÍCIOS GERAIS -->
-    <section id="beneficios" class="py-20 bg-gray-50 relative">
+    <!-- SEÇÃO DIRETORIA (Reordenada para vir antes de Benefícios) -->
+    <section id="diretoria" class="py-20 bg-asof-light scroll-mt-28">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bebas text-asof-dark mb-10 text-center">Gestão Passo Fundo</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                <!-- Card de Presidente -->
+                <div class="p-6 border border-gray-100 bg-white rounded-lg hover:shadow-md transition-shadow">
+                    <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 overflow-hidden">
+                        <img src="https://ui-avatars.com/api/?name=Presidente+ASOF&background=004d00&color=fff" alt="Presidente">
+                    </div>
+                    <h4 class="font-bold text-asof-dark">Nome do Presidente</h4>
+                    <p class="text-xs text-asof-green uppercase tracking-wider font-bold">Presidente Regional</p>
+                </div>
+
+                <!-- Card de Vice -->
+                <div class="p-6 border border-gray-100 bg-white rounded-lg hover:shadow-md transition-shadow">
+                    <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 overflow-hidden">
+                        <img src="https://ui-avatars.com/api/?name=Vice+Presidente&background=bf9b30&color=fff" alt="Vice">
+                    </div>
+                    <h4 class="font-bold text-asof-dark">Nome do Vice</h4>
+                    <p class="text-xs text-asof-green uppercase tracking-wider font-bold">Vice-Presidente</p>
+                </div>
+
+                <!-- Adicione mais conforme necessário -->
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFÍCIOS GERAIS (Agora após Diretoria) -->
+    <section id="beneficios" class="py-20 bg-white relative scroll-mt-28">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-4xl font-bebas text-asof-dark mb-4">Vantagens Exclusivas</h2>
@@ -273,7 +309,7 @@
                     </div>
                     <h3 class="text-xl font-bold text-asof-dark mb-3 font-montserrat">Convênios</h3>
                     <p class="text-sm text-gray-500 mb-4">
-                        Descontos reais em parceiros em diversas áreas como saúde, automotivo e educação.
+                        Descontos reais em conveniados em diversas áreas como saúde, automotivo e educação.
                     </p>
                 </div>
 
@@ -290,38 +326,10 @@
         </div>
     </section>
 
-    <!-- SEÇÃO DIRETORIA -->
-    <section id="diretoria" class="py-20 bg-white">
+    <!-- LISTA DE CONVENIADOS (ANTIGO PARCEIROS) - COM LOGOS E INTERAÇÃO -->
+    <section id="convenios" class="py-20 bg-asof-light border-t border-gray-200 scroll-mt-28">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bebas text-asof-dark mb-10 text-center">Gestão Passo Fundo</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-                <!-- Card de Presidente -->
-                <div class="p-6 border border-gray-100 rounded-lg hover:shadow-md transition-shadow">
-                    <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 overflow-hidden">
-                        <img src="https://ui-avatars.com/api/?name=Presidente+ASOF&background=004d00&color=fff" alt="Presidente">
-                    </div>
-                    <h4 class="font-bold text-asof-dark">Nome do Presidente</h4>
-                    <p class="text-xs text-asof-green uppercase tracking-wider font-bold">Presidente Regional</p>
-                </div>
-
-                <!-- Card de Vice -->
-                <div class="p-6 border border-gray-100 rounded-lg hover:shadow-md transition-shadow">
-                    <div class="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4 overflow-hidden">
-                        <img src="https://ui-avatars.com/api/?name=Vice+Presidente&background=bf9b30&color=fff" alt="Vice">
-                    </div>
-                    <h4 class="font-bold text-asof-dark">Nome do Vice</h4>
-                    <p class="text-xs text-asof-green uppercase tracking-wider font-bold">Vice-Presidente</p>
-                </div>
-
-                <!-- Adicione mais conforme necessário -->
-            </div>
-        </div>
-    </section>
-
-    <!-- LISTA DE PARCEIROS (CONVÊNIOS) - COM LOGOS E INTERAÇÃO -->
-    <section id="convenios" class="py-20 bg-asof-light border-t border-gray-200">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bebas text-asof-dark mb-10 text-center">Nossa Rede de Parceiros</h2>
+            <h2 class="text-3xl font-bebas text-asof-dark mb-10 text-center">Nossa Rede de Conveniados</h2>
 
             <!-- AVISO VISUAL EM VERMELHO -->
             <div class="text-center mb-10">
@@ -329,7 +337,6 @@
                     <i class="fas fa-hand-point-down mr-2 animate-bounce"></i> Clique nos cartões abaixo para ver detalhes dos benefícios
                 </p>
             </div>
-
 
             <!-- Adicionado items-start para evitar que cards vizinhos estiquem -->
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
@@ -345,7 +352,8 @@
                             <p class="text-sm text-gray-600">Soluções completas em TI e Desenvolvimento.</p>
                             <!-- Descrição do desconto adicionada -->
                             <p class="text-sm text-gray-500 mt-2 italic">Condições comerciais exclusivas para associados em projetos de software e consultoria.</p>
-                            <span class="inline-block mt-2 px-3 py-1 bg-asof-gold text-white text-xs font-bold rounded-full">SÓCIO PARCEIRO</span>
+                            <!-- Renomeado -->
+                            <span class="inline-block mt-2 px-3 py-1 bg-asof-gold text-white text-xs font-bold rounded-full">SÓCIO CONVENIADO</span>
                         </div>
                     </div>
                     <a href="https://wa.me/5554991678057?text=Ol%C3%A1%2C%20vi%20seu%20trabalho%20no%20site%20da%20ASOF%20e%20quero%20solicitar%20um%20or%C3%A7amento%21" target="_blank" class="px-6 py-2 bg-asof-green text-white rounded font-bold hover:bg-asof-dark transition-colors text-sm">
@@ -643,7 +651,7 @@
             <div class="mt-16 text-center">
                 <div class="inline-block bg-white p-6 rounded-xl shadow-lg border-2 border-asof-green/10 max-w-2xl mx-auto">
                     <p class="text-lg text-asof-dark font-medium mb-4">
-                        Para saber mais sobre os descontos e vantagens dos nossos parceiros e conveniados, entre em contato!
+                        Para saber mais sobre os descontos e vantagens dos nossos conveniados, entre em contato!
                     </p>
                     <p class="text-sm text-gray-500 mb-2 font-bold uppercase tracking-wide">Clique no botão do whatsapp abaixo</p>
                     <!-- Link atualizado para apontar diretamente para os botões -->
@@ -656,7 +664,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer id="contato" class="bg-black text-white py-16 text-center font-sans">
+    <footer id="contato" class="bg-black text-white py-16 text-center font-sans scroll-mt-28">
         <div class="container mx-auto px-6">
             <h3 class="text-3xl md:text-4xl font-bebas tracking-wider mb-8 uppercase text-white">
                 Entre em Contato
@@ -698,11 +706,11 @@
             // Se clicar em outro, fecha todos e abre o novo.
 
             // Opcional: Fechar outros ao abrir um (comente as linhas abaixo se quiser permitir múltiplos abertos)
-            
-            //document.querySelectorAll('.partner-card').forEach(c => {
-            //    if (c !== card) c.classList.remove('active');
-            //});
-            
+            /*
+            document.querySelectorAll('.partner-card').forEach(c => {
+                if (c !== card) c.classList.remove('active');
+            });
+            */
 
             card.classList.toggle('active');
         }
