@@ -22,7 +22,9 @@
                             red: '#cc0000',
                             gold: '#bf9b30',
                             dark: '#1a1a1a',
-                            light: '#f8f9fa'
+                            light: '#f8f9fa',
+                            purple: '#4c1d95', /* Roxo profundo para o Papo Roxo */
+                            purpleLight: '#8b5cf6'
                         }
                     },
                     fontFamily: {
@@ -197,9 +199,9 @@
             <nav class="hidden md:flex items-center gap-8 font-montserrat font-semibold text-sm text-asof-green">
                 <a href="#sobre" class="hover:text-asof-gold transition-colors uppercase">A Instituição</a>
                 <a href="#diretoria" class="hover:text-asof-gold transition-colors uppercase">Diretoria</a>
-                <!-- Link "Vantagens" adicionado -->
                 <a href="#beneficios" class="hover:text-asof-gold transition-colors uppercase">Vantagens</a>
-                <!-- Link "Convênios" agora leva para a lista de conveniados -->
+                <!-- Link Papo Roxo adicionado -->
+                <a href="#paporoxo" class="hover:text-asof-purpleLight transition-colors uppercase">Papo Roxo</a>
                 <a href="#convenios" class="hover:text-asof-gold transition-colors uppercase">Convênios</a>
                 <a href="#contato" class="hover:text-asof-gold transition-colors uppercase">Contato</a>
                 <!-- Link WhatsApp com Mensagem Personalizada -->
@@ -220,6 +222,7 @@
                 <a href="#sobre" class="hover:text-asof-gold uppercase py-2 border-b border-gray-50">A Instituição</a>
                 <a href="#diretoria" class="hover:text-asof-gold uppercase py-2 border-b border-gray-50">Diretoria</a>
                 <a href="#beneficios" class="hover:text-asof-gold uppercase py-2 border-b border-gray-50">Vantagens</a>
+                <a href="#paporoxo" class="hover:text-asof-purpleLight uppercase py-2 border-b border-gray-50">Papo Roxo</a>
                 <a href="#convenios" class="hover:text-asof-gold uppercase py-2 border-b border-gray-50">Convênios</a>
                 <a href="#contato" class="hover:text-asof-gold uppercase py-2 border-b border-gray-50">Contato</a>
                 <a href="https://wa.me/5554991678057?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Associa%C3%A7%C3%A3o%20e%20quero%20ser%20s%C3%B3cio%2C%20consigo%20um%20convite%20especial%3F" target="_blank" class="px-6 py-3 bg-asof-green text-white rounded-full hover:bg-asof-gold hover:text-asof-green transition-all shadow-md mt-2">
@@ -248,7 +251,7 @@
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-asof-gold">Integração.</span>
             </h2>
             <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
-                A casa dos Oficiais da Brigada Militar, Bombeiros, Praças e <strong>Amigos da brigada militar</strong>. Uma família unida pela história e pelo compromisso com a sociedade.
+                A casa dos Oficiais da Brigada Militar, Bombeiros, Praças e <strong>Amigos da Brigada Militar</strong>. Uma família unida pela história e pelo compromisso com a sociedade.
             </p>
 
             <div class="flex flex-col md:flex-row gap-4 justify-center">
@@ -383,6 +386,152 @@
                     <p class="text-sm text-gray-500 mb-4">
                         Para os sócios, oferecemos suporte jurídico especializado.
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NOVA SEÇÃO: APP DA ASOF -->
+    <section id="app" class="py-20 bg-asof-green text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-asof-gold rounded-full filter blur-3xl opacity-20 -translate-y-1/2 translate-x-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-asof-red rounded-full filter blur-3xl opacity-20 translate-y-1/2 -translate-x-1/2"></div>
+
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div>
+                <span class="inline-block py-1 px-3 bg-asof-gold text-asof-green rounded-full text-xs font-bold tracking-wider mb-4 uppercase">
+                    Em Breve - Novidade
+                </span>
+                <h2 class="text-4xl md:text-5xl font-bebas mb-6 leading-tight">O App da ASOF<br>Vem Aí!</h2>
+                <p class="text-lg md:text-xl text-gray-200 mb-8 font-light">
+                    Tudo o que você precisa na palma da sua mão. Mais facilidade, controle e integração para o seu dia a dia.
+                </p>
+                <ul class="space-y-4 text-lg">
+                    <li class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-asof-gold">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        Pagar Mensalidade
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-asof-gold">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        Agendar Reserva do Espaço
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-asof-gold">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        Carteira de Associado Digital
+                    </li>
+                    <li class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-asof-gold">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        Acompanhamento das Atividades
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex justify-center">
+                <div class="bg-white p-8 rounded-2xl shadow-2xl text-center text-gray-800 max-w-sm w-full transform hover:scale-105 transition-transform duration-300">
+                    <div class="mb-4">
+                        <i class="fas fa-mobile-alt text-5xl text-asof-green"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl mb-2 text-asof-green font-montserrat">Baixe o App</h3>
+                    <p class="text-gray-500 text-sm mb-6 uppercase tracking-wider font-bold">Disponível em Breve</p>
+
+                    <div class="bg-gray-100 p-4 rounded-xl mb-4 border-2 border-dashed border-gray-300">
+                        <!-- Placeholder do QR Code -->
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=ASOF%20Passo%20Fundo%20App%20Em%20Breve&color=004d00" alt="QR Code App ASOF" class="mx-auto w-48 h-48 mix-blend-multiply">
+                    </div>
+
+                    <p class="text-xs text-gray-400">
+                        Aponte a câmera do seu celular para baixar (quando disponível).
+                    </p>
+
+                    <div class="flex justify-center gap-4 mt-6 opacity-50 grayscale">
+                        <i class="fab fa-apple text-2xl"></i>
+                        <i class="fab fa-android text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO PAPO ROXO -->
+    <section id="paporoxo" class="py-20 relative bg-gradient-to-br from-asof-purple to-black text-white scroll-mt-28 overflow-hidden">
+        <!-- Elementos de fundo -->
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+        <div class="absolute top-10 left-10 w-32 h-32 bg-asof-purpleLight rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+        <div class="absolute bottom-10 right-10 w-48 h-48 bg-asof-gold rounded-full filter blur-3xl opacity-10"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <!-- Coluna de Texto -->
+                <div class="lg:w-1/2 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white/10 px-4 py-1 rounded-full mb-4 border border-white/20">
+                        <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+                        <span class="text-xs font-bold tracking-wider uppercase">Programa Exclusivo</span>
+                    </div>
+                    <h2 class="text-5xl md:text-7xl font-bebas mb-2 leading-none">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-asof-purpleLight to-white">PAPO</span> ROXO
+                    </h2>
+                    <p class="text-xl md:text-2xl font-montserrat font-light text-gray-300 mb-6">
+                        Conexão e Informação para a Família Brigadiana
+                    </p>
+
+                    <div class="space-y-4 mb-8 text-gray-200">
+                        <p class="flex items-center justify-center lg:justify-start gap-3">
+                            <i class="fas fa-calendar-alt text-asof-purpleLight text-xl"></i>
+                            Quintas-feiras (alternado) às 18:30H
+                        </p>
+                        <p class="flex items-center justify-center lg:justify-start gap-3">
+                            <i class="fas fa-microphone-alt text-asof-purpleLight text-xl"></i>
+                            Lá na <strong class="text-white">Voz da Segurança</strong>
+                        </p>
+                        <p class="flex items-center justify-center lg:justify-start gap-3">
+                            <i class="fas fa-user-tie text-asof-purpleLight text-xl"></i>
+                            Apresentação: <strong class="text-white">Álvaro Damini</strong>
+                        </p>
+                    </div>
+
+                    <a href="https://www.youtube.com/@canalvozdaseguranca" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 bg-asof-purpleLight hover:bg-purple-600 text-white font-bold rounded-full transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(139,92,246,0.5)]">
+                        <i class="fab fa-youtube text-2xl"></i>
+                        ASSISTIR AGORA
+                    </a>
+                </div>
+
+                <!-- Coluna Visual -->
+                <div class="lg:w-1/2 flex justify-center relative">
+                    <!-- Círculo decorativo atrás -->
+                    <div class="absolute inset-0 bg-asof-purpleLight rounded-full filter blur-[80px] opacity-20"></div>
+
+                    <div class="relative bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-2xl max-w-md w-full shadow-2xl">
+                        <!-- Efeito de onda sonora no topo -->
+                        <div class="flex justify-between items-center mb-6 h-8 gap-1">
+                            <div class="w-1 bg-asof-purpleLight h-full animate-[bounce_1s_infinite]"></div>
+                            <div class="w-1 bg-asof-purpleLight h-1/2 animate-[bounce_1.2s_infinite]"></div>
+                            <div class="w-1 bg-asof-purpleLight h-3/4 animate-[bounce_0.8s_infinite]"></div>
+                            <div class="w-1 bg-asof-purpleLight h-full animate-[bounce_1.5s_infinite]"></div>
+                            <div class="w-1 bg-asof-purpleLight h-1/2 animate-[bounce_1.1s_infinite]"></div>
+                            <div class="w-1 bg-asof-purpleLight h-3/4 animate-[bounce_0.9s_infinite]"></div>
+                            <div class="w-full h-[1px] bg-white/20"></div>
+                            <i class="fas fa-podcast text-white/50"></i>
+                        </div>
+
+                        <!-- Card do Apresentador -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-32 h-32 rounded-full border-4 border-asof-purpleLight p-1 mb-4">
+                                <img src="Imagens/Álvaro Damini.png" alt="Álvaro Damini" class="w-full h-full rounded-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500" onerror="this.src='https://ui-avatars.com/api/?name=Alvaro+Damini&background=8b5cf6&color=fff&size=128'">
+                            </div>
+                            <h3 class="text-2xl font-bebas tracking-wide text-white">ÁLVARO DAMINI</h3>
+                            <p class="text-asof-purpleLight text-sm font-bold tracking-wider uppercase mb-4">Host Oficial</p>
+                            <p class="text-gray-400 text-sm text-center italic">
+                                "Trazendo os bastidores, histórias e novidades da nossa associação com muito carisma e informação."
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
