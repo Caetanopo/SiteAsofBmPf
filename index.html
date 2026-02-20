@@ -156,25 +156,25 @@
             border-top: 1px solid #f0f0f0;
         }
 
-        /* Animação de Marquee (Letreiro) da Esquerda para Direita */
-        @keyframes marqueeLeftToRight {
+        /* Animação de Marquee (Letreiro) da DIREITA para a ESQUERDA (Corrigido) */
+        @keyframes marqueeRightToLeft {
             0% {
-                transform: translateX(-100%);
+                transform: translateX(100vw);
             }
 
             100% {
-                transform: translateX(100vw);
+                transform: translateX(-100%);
             }
         }
 
         .animate-marquee {
             display: inline-block;
             white-space: nowrap;
-            animation: marqueeLeftToRight 20s linear infinite;
+            animation: marqueeRightToLeft 25s linear infinite;
         }
     </style>
 </head>
-<body class="bg-asof-light text-gray-800 font-sans antialiased">
+<body class="bg-asof-light text-gray-800 font-sans antialiased relative">
 
     <!-- BARRA DE TOPO ANIMADA -->
     <div class="bg-asof-red text-white text-xs py-1 px-4 overflow-hidden relative">
@@ -183,8 +183,8 @@
         </div>
     </div>
 
-    <!-- HEADER -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
+    <!-- HEADER LIMPO (Sem botões para evitar aperto) -->
+    <header class="bg-white shadow-md sticky top-0 z-40">
         <div class="container mx-auto px-6 h-24 flex justify-between items-center relative">
             <a href="#" class="flex items-center gap-4 group">
                 <!-- LOGO da ASOF -->
@@ -195,19 +195,14 @@
                 </div>
             </a>
 
-            <!-- NAVEGAÇÃO DESKTOP -->
+            <!-- NAVEGAÇÃO DESKTOP (Agora espaçosa e elegante) -->
             <nav class="hidden md:flex items-center gap-8 font-montserrat font-semibold text-sm text-asof-green">
                 <a href="#sobre" class="hover:text-asof-gold transition-colors uppercase">A Instituição</a>
                 <a href="#diretoria" class="hover:text-asof-gold transition-colors uppercase">Diretoria</a>
                 <a href="#beneficios" class="hover:text-asof-gold transition-colors uppercase">Vantagens</a>
-                <!-- Link Papo Roxo adicionado -->
                 <a href="#paporoxo" class="hover:text-asof-purpleLight transition-colors uppercase">Papo Roxo</a>
                 <a href="#convenios" class="hover:text-asof-gold transition-colors uppercase">Convênios</a>
                 <a href="#contato" class="hover:text-asof-gold transition-colors uppercase">Contato</a>
-                <!-- Link WhatsApp com Mensagem Personalizada -->
-                <a href="https://wa.me/555499255448?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Associa%C3%A7%C3%A3o%20e%20quero%20ser%20s%C3%B3cio%2C%20consigo%20um%20convite%20especial%3F" target="_blank" class="px-6 py-2 bg-asof-green text-white rounded-full hover:bg-asof-gold hover:text-asof-green transition-all shadow-lg transform hover:-translate-y-0.5">
-                    SEJA SÓCIO
-                </a>
             </nav>
 
             <!-- BOTÃO MOBILE (Hambúrguer) -->
@@ -216,7 +211,7 @@
             </button>
         </div>
 
-        <!-- MENU MOBILE (Oculto por padrão) -->
+        <!-- MENU MOBILE (Oculto por padrão - Mantive os botões aqui pois há espaço vertical) -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full left-0 top-24 z-40">
             <nav class="flex flex-col p-6 gap-4 font-montserrat font-semibold text-sm text-asof-green text-center">
                 <a href="#sobre" class="hover:text-asof-gold uppercase py-2 border-b border-gray-50">A Instituição</a>
@@ -225,7 +220,11 @@
                 <a href="#paporoxo" class="hover:text-asof-purpleLight uppercase py-2 border-b border-gray-50">Papo Roxo</a>
                 <a href="#convenios" class="hover:text-asof-gold uppercase py-2 border-b border-gray-50">Convênios</a>
                 <a href="#contato" class="hover:text-asof-gold uppercase py-2 border-b border-gray-50">Contato</a>
-                <a href="https://wa.me/555499255448?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Associa%C3%A7%C3%A3o%20e%20quero%20ser%20s%C3%B3cio%2C%20consigo%20um%20convite%20especial%3F" target="_blank" class="px-6 py-3 bg-asof-green text-white rounded-full hover:bg-asof-gold hover:text-asof-green transition-all shadow-md mt-2">
+
+                <a href="https://wa.me/555499255448?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20como%20minha%20empresa%20pode%20se%20tornar%20uma%20conveniada%20da%20AsOf%21" target="_blank" class="px-6 py-3 bg-transparent border-2 border-asof-green text-asof-green font-bold rounded-full hover:bg-asof-green hover:text-white transition-all shadow-md mt-4">
+                    SEJA CONVENIADO
+                </a>
+                <a href="https://wa.me/555499255448?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Associa%C3%A7%C3%A3o%20e%20quero%20ser%20s%C3%B3cio%2C%20consigo%20um%20convite%20especial%3F" target="_blank" class="px-6 py-3 bg-asof-green text-white font-bold rounded-full hover:bg-asof-gold hover:text-asof-green transition-all shadow-md mt-2 mb-2">
                     SEJA SÓCIO
                 </a>
             </nav>
@@ -234,9 +233,8 @@
 
     <!-- HERO SECTION -->
     <section class="hero-bg h-[85vh] flex items-center justify-center text-white px-6 relative overflow-hidden">
-        <!-- MARCA D'ÁGUA NO FUNDO (Revertido para pulsação suave) -->
+        <!-- MARCA D'ÁGUA NO FUNDO -->
         <div class="absolute inset-0 flex items-center justify-center z-0 pointer-events-none">
-            <!-- Nota: Substitua o caminho abaixo se necessário para 'Imagens/logo preto e branco fundo transparente.png' no seu PC -->
             <img src="Imagens/logo preto e branco fundo transparente.png" alt="Marca D'água" class="w-[500px] md:w-[700px] opacity-10 animate-pulse">
         </div>
 
@@ -254,12 +252,15 @@
                 A casa dos Oficiais da Brigada Militar, Bombeiros, Praças e <strong>Amigos da Brigada Militar</strong>. Uma família unida pela história e pelo compromisso com a sociedade.
             </p>
 
-            <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <!-- Link WhatsApp com Mensagem Personalizada -->
+            <div class="flex flex-col md:flex-row gap-4 justify-center flex-wrap">
                 <a href="https://wa.me/555499255448?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Associa%C3%A7%C3%A3o%20e%20quero%20ser%20s%C3%B3cio%2C%20consigo%20um%20convite%20especial%3F" target="_blank" class="px-8 py-4 bg-asof-red hover:bg-red-700 text-white font-bold rounded shadow-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2">
                     <i class="fas fa-file-signature"></i> QUERO ME ASSOCIAR
                 </a>
-                <!-- Link ajustado e texto renomeado -->
+
+                <a href="https://wa.me/555499255448?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20como%20minha%20empresa%20pode%20se%20tornar%20uma%20conveniada%20da%20AsOf%21" target="_blank" class="px-8 py-4 bg-asof-gold hover:bg-yellow-600 text-white font-bold rounded shadow-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+                    <i class="fas fa-handshake"></i> QUERO SER CONVENIADO
+                </a>
+
                 <a href="#convenios" class="px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-asof-green font-bold rounded transition-all flex items-center justify-center gap-2">
                     VER CONVENIADOS
                 </a>
@@ -292,7 +293,7 @@
         </div>
     </section>
 
-    <!-- SEÇÃO DIRETORIA (Reordenada para vir antes de Benefícios) -->
+    <!-- SEÇÃO DIRETORIA -->
     <section id="diretoria" class="py-20 bg-asof-light scroll-mt-28">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bebas text-asof-dark mb-10 text-center">Gestão - Passo Fundo</h2>
@@ -346,7 +347,7 @@
         </div>
     </section>
 
-    <!-- BENEFÍCIOS GERAIS (Agora após Diretoria) -->
+    <!-- BENEFÍCIOS GERAIS -->
     <section id="beneficios" class="py-20 bg-white relative scroll-mt-28">
         <div class="container mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -442,7 +443,6 @@
                     <p class="text-gray-500 text-sm mb-6 uppercase tracking-wider font-bold">Disponível em Breve</p>
 
                     <div class="bg-gray-100 p-4 rounded-xl mb-4 border-2 border-dashed border-gray-300">
-                        <!-- Placeholder do QR Code -->
                         <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=AsOf%20Passo%20Fundo%20App%20Em%20Breve&color=004d00" alt="QR Code App ASOF" class="mx-auto w-48 h-48 mix-blend-multiply">
                     </div>
 
@@ -537,38 +537,30 @@
         </div>
     </section>
 
-    <!-- LISTA DE CONVENIADOS (ANTIGO PARCEIROS) - COM LOGOS E INTERAÇÃO -->
+    <!-- LISTA DE CONVENIADOS -->
     <section id="convenios" class="py-20 bg-asof-light border-t border-gray-200 scroll-mt-28">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-bebas text-asof-dark mb-10 text-center">Nossa Rede de Conveniados</h2>
 
-            <!-- AVISO VISUAL EM VERMELHO -->
             <div class="text-center mb-10">
                 <p class="inline-block bg-asof-red text-white py-2 px-4 md:py-3 md:px-8 rounded-full shadow-lg font-bold uppercase tracking-wide cursor-default hover:bg-red-700 transition-colors text-xs md:text-base">
                     <i class="fas fa-hand-point-down mr-2 animate-bounce"></i> Clique nos cartões abaixo para ver detalhes dos benefícios
                 </p>
             </div>
 
-            <!-- Adicionado items-start para evitar que cards vizinhos estiquem -->
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
-
                 <!-- Destaque: JC Soluções -->
                 <div class="lg:col-span-4 bg-white p-4 md:p-6 rounded-lg border-l-4 border-asof-gold shadow-md mb-6 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                     <div class="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
-                        <!-- MUDANÇA: Responsividade para a logo -->
                         <div class="w-20 h-20 md:w-40 md:h-40 bg-white rounded border border-gray-100 p-1 flex items-center justify-center shadow-sm flex-shrink-0">
-                            <!-- CORREÇÃO AQUI: Removidas classes duplicadas da imagem -->
                             <img src="Imagens/Conveniados/Logo JC.png" alt="JC Soluções" class="max-w-full max-h-full object-contain">
                         </div>
                         <div>
                             <h3 class="text-lg md:text-xl font-bold text-asof-green"><i class="fas fa-laptop-code mr-2"></i>JC Soluções em Tecnologia</h3>
                             <p class="text-sm text-gray-600">Soluções completas em TI e Desenvolvimento.</p>
-                            <!-- Descrição do desconto adicionada -->
                             <p class="text-sm text-gray-500 mt-2 italic">Condições comerciais exclusivas para associados em projetos de software e consultoria.</p>
-                            <!-- Renomeado -->
                             <span class="inline-block mt-2 px-3 py-1 bg-asof-gold text-white text-xs font-bold rounded-full">SÓCIO CONVENIADO</span>
 
-                            <!-- Novos Links para Site e Instagram -->
                             <div class="flex items-center justify-center md:justify-start gap-4 mt-3">
                                 <a href="https://caetanopo.github.io/SiteJCSolucoesEmTecnologia/" target="_blank" class="flex items-center gap-2 text-sm font-semibold text-gray-600 hover:text-asof-green transition-colors">
                                     <i class="fas fa-globe"></i> Site
@@ -692,6 +684,18 @@
                     </div>
                     <div class="partner-details">
                         <p class="text-sm text-gray-600">Isenção de matrícula e desconto na mensalidade para sócios.</p>
+                    </div>
+                </div>
+
+                <div class="partner-card" onclick="togglePartner(this)">
+                    <div class="partner-header">
+                        <div class="partner-logo-container">
+                            <img src="Imagens/Conveniados/Farmacias Sao Joao.png" alt="Sao Joao" onerror="this.src='https://placehold.co/100x60?text=Sao+Joao'">
+                        </div>
+                        <span class="font-semibold text-gray-700">Farmácias São João</span>
+                    </div>
+                    <div class="partner-details">
+                        <p class="text-sm text-gray-600">Descontos em medicamentos de referência e genéricos com o CPF cadastrado.</p>
                     </div>
                 </div>
 
@@ -848,18 +852,6 @@
                 <div class="partner-card" onclick="togglePartner(this)">
                     <div class="partner-header">
                         <div class="partner-logo-container">
-                            <img src="Imagens/Conveniados/Farmacias Sao Joao.png" alt="Sao Joao" onerror="this.src='https://placehold.co/100x60?text=Sao+Joao'">
-                        </div>
-                        <span class="font-semibold text-gray-700">Farmácias São João</span>
-                    </div>
-                    <div class="partner-details">
-                        <p class="text-sm text-gray-600">Descontos em medicamentos de referência e genéricos com o CPF cadastrado.</p>
-                    </div>
-                </div>
-
-                <div class="partner-card" onclick="togglePartner(this)">
-                    <div class="partner-header">
-                        <div class="partner-logo-container">
                             <img src="Imagens/Conveniados/Arq. Mariana Zanotelli.png" alt="Arq Mariana" onerror="this.src='https://placehold.co/100x60?text=Arq+Mariana'">
                         </div>
                         <span class="font-semibold text-gray-700">Arq. Mariana Zanotelli</span>
@@ -870,14 +862,12 @@
                 </div>
             </div>
 
-            <!-- CTA DE DESCONTOS -->
             <div class="mt-16 text-center">
                 <div class="inline-block bg-white p-6 rounded-xl shadow-lg border-2 border-asof-green/10 max-w-2xl mx-auto">
                     <p class="text-lg text-asof-dark font-medium mb-4">
                         Para saber mais sobre os descontos e vantagens dos nossos conveniados, entre em contato!
                     </p>
                     <p class="text-sm text-gray-500 mb-2 font-bold uppercase tracking-wide">Clique no botão do whatsapp abaixo</p>
-                    <!-- Link atualizado para apontar diretamente para os botões -->
                     <a href="#canais-contato" class="inline-flex items-center justify-center w-12 h-12 bg-asof-gold hover:bg-yellow-600 text-white rounded-full transition-all shadow-md transform hover:scale-110 hover:shadow-lg animate-bounce">
                         <i class="fas fa-arrow-down text-xl"></i>
                     </a>
@@ -893,7 +883,6 @@
                 Entre em Contato
             </h3>
 
-            <!-- ID adicionado e scroll-mt para ajuste de rolagem -->
             <div id="canais-contato" class="flex justify-center gap-8 mb-10 scroll-mt-40">
                 <a href="https://wa.me/555499255448" target="_blank" rel="noopener noreferrer"
                    class="w-14 h-14 flex items-center justify-center border border-gray-700 rounded-full text-2xl text-gray-400 hover:text-green-500 hover:border-green-500 hover:bg-green-500/10 transition-all duration-300 transform hover:scale-110">
@@ -920,25 +909,32 @@
         </div>
     </footer>
 
+    <!-- ========================================== -->
+    <!-- BOTÕES FLUTUANTES (Canto Inferior Direito) -->
+    <!-- ========================================== -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-end">
+        <!-- Botão Seja Conveniado -->
+        <a href="https://wa.me/555499255448?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20como%20minha%20empresa%20pode%20se%20tornar%20uma%20conveniada%20da%20AsOf%21" target="_blank"
+           class="bg-white border-2 border-asof-gold text-asof-gold px-4 py-3 rounded-full shadow-lg hover:bg-asof-gold hover:text-white transition-all duration-300 flex items-center gap-2 font-bold text-sm transform hover:scale-105 group">
+            <span class="hidden md:inline whitespace-nowrap overflow-hidden max-w-0 group-hover:max-w-xs transition-all duration-500 ease-in-out opacity-0 group-hover:opacity-100">Seja Conveniado</span>
+            <i class="fas fa-handshake text-lg"></i>
+        </a>
+
+        <!-- Botão Seja Sócio -->
+        <a href="https://wa.me/555499255448?text=Ol%C3%A1%2C%20vi%20o%20site%20da%20Associa%C3%A7%C3%A3o%20e%20quero%20ser%20s%C3%B3cio%2C%20consigo%20um%20convite%20especial%3F" target="_blank"
+           class="bg-asof-green text-white px-4 py-3 rounded-full shadow-lg hover:bg-green-800 transition-all duration-300 flex items-center gap-2 font-bold text-sm transform hover:scale-105 group">
+            <span class="hidden md:inline whitespace-nowrap overflow-hidden max-w-xs transition-all duration-500 ease-in-out pr-1">Seja Sócio</span>
+            <i class="fas fa-user-plus text-lg"></i>
+        </a>
+    </div>
+
     <script>
         console.log("AsOfBM Passo Fundo - Sistema Carregado");
 
-        // Função para expandir/recolher cards de parceiros
         function togglePartner(card) {
-            // Se clicar no mesmo card aberto, ele fecha.
-            // Se clicar em outro, fecha todos e abre o novo.
-
-            // Opcional: Fechar outros ao abrir um (comente as linhas abaixo se quiser permitir múltiplos abertos)
-            /*
-            document.querySelectorAll('.partner-card').forEach(c => {
-                if (c !== card) c.classList.remove('active');
-            });
-            */
-
             card.classList.toggle('active');
         }
 
-        // Mobile Menu Toggle
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -946,7 +942,6 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Close mobile menu when clicking a link
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
