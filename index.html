@@ -14,10 +14,10 @@
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
             if (/android/i.test(userAgent)) {
                 window.location.replace("https://play.google.com/store/apps/details?id=com.flutterflow.asofbmpf&pcampaignid=web_share");
-            }
+            } 
             else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
                 window.location.replace("https://apps.apple.com/us/app/asofbm-passo-fundo/id6447928352?l=pt-BR");
-            }
+            } 
             else {
                 // Se abrir no PC, apenas limpa a URL e mostra o site normalmente
                 window.history.replaceState(null, null, window.location.pathname);
@@ -148,11 +148,11 @@
             border: 1px solid #f0f0f0;
         }
 
-            .partner-logo-container img {
-                max-width: 100%;
-                max-height: 100%;
-                object-fit: contain;
-            }
+        .partner-logo-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
 
         .partner-details {
             max-height: 0;
@@ -171,13 +171,8 @@
         }
 
         @keyframes marqueeRightToLeft {
-            0% {
-                transform: translateX(100vw);
-            }
-
-            100% {
-                transform: translateX(-100%);
-            }
+            0% { transform: translateX(100vw); }
+            100% { transform: translateX(-100%); }
         }
 
         .animate-marquee {
@@ -579,78 +574,118 @@
     </section>
 
     <!-- PATROCINADORES PAPO ROXO -->
-    <section class="py-12 bg-[#0a0a0a] border-t border-white/5 relative z-20">
+    <section class="py-16 bg-[#0a0a0a] border-t border-white/5 relative z-20">
         <div class="container mx-auto px-4 md:px-6">
-            <div class="text-center mb-10">
-                <h3 class="text-asof-purpleLight text-sm font-bold tracking-[0.2em] uppercase">Patrocinadores Oficiais - Papo Roxo</h3>
+            <div class="text-center mb-16">
+                <h3 class="text-white text-3xl md:text-4xl font-bebas tracking-widest uppercase mb-4">Patrocinadores Oficiais - Papo Roxo</h3>
+                <div class="w-24 h-1 bg-asof-purpleLight mx-auto"></div>
             </div>
 
-            <!-- Alterado para Grid: 2 colunas no mobile e 4 colunas em telas médias/grandes -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
-                <!-- Kozma -->
-                <a href="https://www.instagram.com/clinicakozma/" target="_blank" class="w-full h-20 md:h-28 bg-white rounded-xl flex items-center justify-center p-3 md:p-5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border-2 border-transparent hover:border-asof-purpleLight group">
-                    <img src="Imagens/Patrocinadores/kozma.jpg" alt="Kozma" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                </a>
+            <!-- ================= COTA MASTER (DESTAQUE MÁXIMO) ================= -->
+            <div class="mb-20">
+                <div class="text-center mb-8">
+                    <h4 class="text-asof-gold text-lg md:text-xl font-bebas tracking-[0.1em] uppercase flex items-center justify-center gap-3">
+                        <i class="fas fa-crown text-2xl"></i>Master
+                    </h4>
+                </div>
 
-                <!-- Perfecto -->
-                <a href="https://wa.me/54991988012" target="_blank" class="w-full h-20 md:h-28 bg-white rounded-xl flex items-center justify-center p-3 md:p-5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border-2 border-transparent hover:border-asof-purpleLight group">
-                    <img src="Imagens/Patrocinadores/perfecto.png" alt="Perfecto Bordados" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                </a>
+                <!-- Grade Master: Cartões maiores, com brilho permanente e etiqueta -->
+                <div class="flex flex-wrap justify-center gap-6 md:gap-8 max-w-5xl mx-auto">
 
-                <!-- JC Soluções -->
-                <a href="https://www.instagram.com/jcsolucoes_tech/" target="_blank" class="w-full h-20 md:h-28 bg-white rounded-xl flex items-center justify-center p-3 md:p-5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border-2 border-transparent hover:border-asof-purpleLight group">
-                    <img src="Imagens/Patrocinadores/JC Soluções em Tecnologia.png" alt="JC Soluções em Tecnologia" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                </a>
+                    <!-- Kozma (Master) -->
+                    <a href="https://www.instagram.com/clinicakozma/" target="_blank" class="relative w-full sm:w-[calc(50%-1.5rem)] md:w-[420px] h-36 md:h-48 bg-white rounded-2xl flex items-center justify-center p-8 md:p-10 transition-all duration-500 shadow-[0_0_25px_rgba(191,155,48,0.3)] hover:shadow-[0_0_45px_rgba(191,155,48,0.6)] hover:-translate-y-2 border-2 border-asof-gold group overflow-hidden">
+                        <!-- Fundo decorativo hover -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-asof-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <!-- Etiqueta Master -->
+                        <div class="absolute top-0 right-0 bg-asof-gold text-white text-[10px] md:text-xs font-bold px-4 py-1.5 rounded-bl-xl rounded-tr-xl uppercase tracking-widest shadow-md z-10">Master</div>
 
-                <!-- Parlare -->
-                <a href="https://www.instagram.com/parlare.oratoria/" target="_blank" class="w-full h-20 md:h-28 bg-white rounded-xl flex items-center justify-center p-3 md:p-5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border-2 border-transparent hover:border-asof-purpleLight group">
-                    <img src="Imagens/Patrocinadores/logo parlare.pdf.png" alt="Parlare" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                </a>
+                        <img src="Imagens/Patrocinadores/kozma.jpg" alt="Kozma" class="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-110 relative z-0">
+                    </a>
 
-                <!-- Padaria Barcelona -->
-                <a href="https://www.instagram.com/padaria_barcelona/" target="_blank" class="w-full h-20 md:h-28 bg-white rounded-xl flex items-center justify-center p-3 md:p-5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border-2 border-transparent hover:border-asof-purpleLight group">
-                    <img src="Imagens/Patrocinadores/padaria.png" alt="Padaria Barcelona" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                </a>
+                    <!-- Widal Pacheco (Master) -->
+                    <a href="https://www.instagram.com/widalpacheco/" target="_blank" class="relative w-full sm:w-[calc(50%-1.5rem)] md:w-[420px] h-36 md:h-48 bg-white rounded-2xl flex items-center justify-center p-8 md:p-10 transition-all duration-500 shadow-[0_0_25px_rgba(191,155,48,0.3)] hover:shadow-[0_0_45px_rgba(191,155,48,0.6)] hover:-translate-y-2 border-2 border-asof-gold group overflow-hidden">
+                        <!-- Fundo decorativo hover -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-asof-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <!-- Etiqueta Master -->
+                        <div class="absolute top-0 right-0 bg-asof-gold text-white text-[10px] md:text-xs font-bold px-4 py-1.5 rounded-bl-xl rounded-tr-xl uppercase tracking-widest shadow-md z-10">Master</div>
 
-                <!-- Dr. Gustav Reinehr -->
-                <a href="https://wa.me/+555496051602" target="_blank" class="w-full h-20 md:h-28 bg-white rounded-xl flex items-center justify-center p-3 md:p-5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border-2 border-transparent hover:border-asof-purpleLight group">
-                    <img src="Imagens/Patrocinadores/Gustav.jpg" alt="Dr. Gustav Reinehr" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                </a>
+                        <img src="Imagens/Patrocinadores/widal pacheco.png" alt="Widal Pacheco" class="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-110 relative z-0">
+                    </a>
 
-                <!-- Nova Milênio -->
-                <a href="https://www.instagram.com/novomileniopf/" target="_blank" class="w-full h-20 md:h-28 bg-white rounded-xl flex items-center justify-center p-3 md:p-5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border-2 border-transparent hover:border-asof-purpleLight group">
-                    <img src="Imagens/Patrocinadores/Nova Milenio.png" alt="Nova Milênio Contabilidade" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                </a>
+                    <!-- DICA: Se conseguir um novo MASTER, copie todo o bloco de tag <a> acima e cole aqui embaixo -->
 
-                <!-- Mecânica Gênesis -->
-                <a href="https://www.instagram.com/mecanicagenesis/" target="_blank" class="w-full h-20 md:h-28 bg-white rounded-xl flex items-center justify-center p-3 md:p-5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border-2 border-transparent hover:border-asof-purpleLight group">
-                    <img src="Imagens/Patrocinadores/genesis.png" alt="Mecânica Gênesis" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                </a>
+                </div>
+            </div>
 
-                <!--Redecar Caoa Chery-->
-                <a href="https://www.instagram.com/caoachery.redecarveiculos/" target="_blank" class="w-full h-20 md:h-28 bg-white rounded-xl flex items-center justify-center p-3 md:p-5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border-2 border-transparent hover:border-asof-purpleLight group">
-                    <img src="Imagens/Patrocinadores/Logo_Composicao.png" alt="Redecar Caoa Chery" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                </a>
+            <!-- ================= COTA PREMIUM (TAMANHO PADRÃO) ================= -->
+            <div>
+                <div class="text-center mb-8">
+                    <h4 class="text-asof-purpleLight text-base md:text-lg font-bebas tracking-[0.1em] uppercase flex items-center justify-center gap-2">
+                        <i class="fas fa-star"></i>Premium
+                    </h4>
+                </div>
 
-                <!-- Anéris Odontologia e Saúde -->
-                <a href="https://www.instagram.com/dr.fabioaneris/" target="_blank" class="w-full h-20 md:h-28 bg-white rounded-xl flex items-center justify-center p-3 md:p-5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border-2 border-transparent hover:border-asof-purpleLight group">
-                    <img src="Imagens/Patrocinadores/Logo Anéris.jpeg" alt="Anéris Odontologia" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                </a>
+                <!-- Grade Premium: 4 colunas PC / 2 Celular. Altura controlada para não competir com a Master -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 max-w-5xl mx-auto">
 
-                <!-- Clinica amme-->
-                <a href="https://www.instagram.com/clinicaamme/" target="_blank" class="w-full h-20 md:h-28 bg-white rounded-xl flex items-center justify-center p-3 md:p-5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border-2 border-transparent hover:border-asof-purpleLight group">
-                    <img src="Imagens/Patrocinadores/clinica amme.jpg" alt="Novo Patrocinador 1" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                </a>
+                    <!-- Perfecto -->
+                    <a href="https://wa.me/54991988012" target="_blank" class="w-full h-16 md:h-24 bg-white rounded-xl flex items-center justify-center p-3 md:p-4 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border border-gray-100 hover:border-asof-purpleLight group">
+                        <img src="Imagens/Patrocinadores/perfecto.png" alt="Perfecto Bordados" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
+                    </a>
 
-                <!-- Rio grande Segurança -->
-                <a href="https://www.instagram.com/gruporiograndeoficial/" target="_blank" class="w-full h-20 md:h-28 bg-white rounded-xl flex items-center justify-center p-3 md:p-5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border-2 border-transparent hover:border-asof-purpleLight group">
-                    <img src="Imagens/Patrocinadores/Rio grande.jpeg" alt="Novo Patrocinador 2" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                </a>
+                    <!-- JC Soluções -->
+                    <a href="https://www.instagram.com/jcsolucoes_tech/" target="_blank" class="w-full h-16 md:h-24 bg-white rounded-xl flex items-center justify-center p-3 md:p-4 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border border-gray-100 hover:border-asof-purpleLight group">
+                        <img src="Imagens/Patrocinadores/JC Soluções em Tecnologia.png" alt="JC Soluções em Tecnologia" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
+                    </a>
 
-                <!-- Widal Pacheco -->
-                <a href="https://www.instagram.com/widalpacheco/" target="_blank" class="w-full h-20 md:h-28 bg-white rounded-xl flex items-center justify-center p-3 md:p-5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border-2 border-transparent hover:border-asof-purpleLight group">
-                    <img src="Imagens/Patrocinadores/widal pacheco.png" alt="Novo Patrocinador 2" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
-                </a>
+                    <!-- Parlare -->
+                    <a href="https://www.instagram.com/parlare.oratoria/" target="_blank" class="w-full h-16 md:h-24 bg-white rounded-xl flex items-center justify-center p-3 md:p-4 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border border-gray-100 hover:border-asof-purpleLight group">
+                        <img src="Imagens/Patrocinadores/logo parlare.pdf.png" alt="Parlare" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
+                    </a>
+
+                    <!-- Padaria Barcelona -->
+                    <a href="https://www.instagram.com/padaria_barcelona/" target="_blank" class="w-full h-16 md:h-24 bg-white rounded-xl flex items-center justify-center p-3 md:p-4 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border border-gray-100 hover:border-asof-purpleLight group">
+                        <img src="Imagens/Patrocinadores/padaria.png" alt="Padaria Barcelona" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
+                    </a>
+
+                    <!-- Dr. Gustav Reinehr -->
+                    <a href="https://wa.me/+555496051602" target="_blank" class="w-full h-16 md:h-24 bg-white rounded-xl flex items-center justify-center p-3 md:p-4 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border border-gray-100 hover:border-asof-purpleLight group">
+                        <img src="Imagens/Patrocinadores/Gustav.jpg" alt="Dr. Gustav Reinehr" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
+                    </a>
+
+                    <!-- Nova Milênio -->
+                    <a href="https://www.instagram.com/novomileniopf/" target="_blank" class="w-full h-16 md:h-24 bg-white rounded-xl flex items-center justify-center p-3 md:p-4 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border border-gray-100 hover:border-asof-purpleLight group">
+                        <img src="Imagens/Patrocinadores/Nova Milenio.png" alt="Nova Milênio Contabilidade" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
+                    </a>
+
+                    <!-- Mecânica Gênesis -->
+                    <a href="https://www.instagram.com/mecanicagenesis/" target="_blank" class="w-full h-16 md:h-24 bg-white rounded-xl flex items-center justify-center p-3 md:p-4 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border border-gray-100 hover:border-asof-purpleLight group">
+                        <img src="Imagens/Patrocinadores/genesis.png" alt="Mecânica Gênesis" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
+                    </a>
+
+                    <!-- Redecar Caoa Chery -->
+                    <a href="https://www.instagram.com/caoachery.redecarveiculos/" target="_blank" class="w-full h-16 md:h-24 bg-white rounded-xl flex items-center justify-center p-3 md:p-4 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border border-gray-100 hover:border-asof-purpleLight group">
+                        <img src="Imagens/Patrocinadores/Logo_Composicao.png" alt="Redecar Caoa Chery" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
+                    </a>
+
+                    <!-- Anéris Odontologia e Saúde -->
+                    <a href="https://www.instagram.com/dr.fabioaneris/" target="_blank" class="w-full h-16 md:h-24 bg-white rounded-xl flex items-center justify-center p-3 md:p-4 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border border-gray-100 hover:border-asof-purpleLight group">
+                        <img src="Imagens/Patrocinadores/Logo Anéris.jpeg" alt="Anéris Odontologia" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
+                    </a>
+
+                    <!-- Clinica amme -->
+                    <a href="https://www.instagram.com/clinicaamme/" target="_blank" class="w-full h-16 md:h-24 bg-white rounded-xl flex items-center justify-center p-3 md:p-4 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border border-gray-100 hover:border-asof-purpleLight group">
+                        <img src="Imagens/Patrocinadores/clinica amme.jpg" alt="Clínica AMME" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
+                    </a>
+
+                    <!-- Rio grande Segurança -->
+                    <a href="https://www.instagram.com/gruporiograndeoficial/" target="_blank" class="w-full h-16 md:h-24 bg-white rounded-xl flex items-center justify-center p-3 md:p-4 transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:-translate-y-1 border border-gray-100 hover:border-asof-purpleLight group">
+                        <img src="Imagens/Patrocinadores/Rio grande.jpeg" alt="Rio Grande Segurança" class="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105">
+                    </a>
+
+                    <!-- DICA: Se conseguir um novo PREMIUM, copie todo o bloco de tag <a> acima e cole aqui embaixo -->
+
+                </div>
             </div>
         </div>
     </section>
