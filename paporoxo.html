@@ -62,11 +62,11 @@
         /* Otimização de Performance: Aceleração por Hardware no Letreiro */
         @keyframes marqueeRightToLeft {
             0% {
-                transform: translate3d(100vw, 0, 0);
+                transform: translateX(100vw);
             }
 
             100% {
-                transform: translate3d(-100%, 0, 0);
+                transform: translateX(-100%);
             }
         }
 
@@ -74,8 +74,7 @@
             display: inline-block;
             white-space: nowrap;
             will-change: transform;
-            animation: marqueeRightToLeft 25s linear infinite;
-            /* Suavização de bordas e aceleração 3D máxima para evitar travamentos (jitter) */
+            animation: marqueeRightToLeft 25s linear infinite; /* Ritmo otimizado para evitar salto de pixels e travamento */
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
             -webkit-perspective: 1000px;
@@ -269,7 +268,7 @@
             <!-- Embed Principal do Canal / Vídeo de Destaque com Loading Lazy -->
             <div class="max-w-4xl mx-auto bg-black rounded-3xl overflow-hidden border border-white/10 shadow-2xl mb-12">
                 <div class="relative w-full aspect-video">
-                    <iframe class="w-full h-full" loading="lazy" src="https://www.youtube.com/watch?v=D3HNsbC2HL8&list=PLAJ_NljPt3J0NJ0S72CpTsZepzVlhZk03" title="Canal Voz da Segurança - Papo Roxo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-gray-400\'>Acesse nosso canal no YouTube para assistir ao vivo.</div>'"></iframe>
+                    <iframe class="w-full h-full" loading="lazy" src="https://www.youtube.com/embed/videoseries?list=PLAJ_NljPt3J0NJ0S72CpTsZepzVlhZk03" title="Canal Voz da Segurança - Papo Roxo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-full text-gray-400\'>Acesse nosso canal no YouTube para assistir ao vivo.</div>'"></iframe>
                 </div>
                 <div class="p-6 bg-gradient-to-r from-asof-purpleDark to-[#120824] flex flex-col md:flex-row justify-between items-center gap-4">
                     <div class="flex items-center gap-4">
